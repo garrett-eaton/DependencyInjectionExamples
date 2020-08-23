@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,26 @@ namespace DependencyInjectionExamples
     {
         static void Main(string[] args)
         {
-            // Pure Dependency injection is when manual creation of objects occurs and they are injected manually.
-            var writer = new ConsoleWriter();
+            // Using Autofac
 
-            var gre = new Greeter(writer);
+            using (var scope = RegisterDependencies().BeginLifetimeScope())
+            {
+                var greeter = scope.Resolve<Greeter>();
 
-            gre.Greet();
+                greeter.Greet();
+            }
 
             Console.Read();
+        }
+
+        static IContainer RegisterDependencies()
+        {
+            var builder = new ContainerBuilder();
+
+            builder.RegisterType<ConsoleWriter>().As<IWriter>();
+            builder.RegisterType<Greeter>();
+
+            return builder.Build();
         }
     }
 }
