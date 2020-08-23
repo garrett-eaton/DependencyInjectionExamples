@@ -3,9 +3,12 @@ using Microsoft.Extensions.Logging;
 using NLog.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SystemInterface.IO;
+using SystemWrapper.IO;
 
 namespace DependencyInjectionExamples
 {
@@ -34,7 +37,8 @@ namespace DependencyInjectionExamples
 
             builder.RegisterInstance(loggerFactory).As<ILoggerFactory>().SingleInstance();
             builder.RegisterGeneric(typeof(Logger<>)).As(typeof(ILogger<>)).SingleInstance();
-            builder.RegisterType<ConsoleWriter>().As<IWriter>();
+            builder.RegisterType<FileWrap>().As<IFile>();
+            builder.RegisterType<FileWriter>().As<IWriter>();
 
             builder.RegisterDecorator<LoggedWriter, IWriter>();
 

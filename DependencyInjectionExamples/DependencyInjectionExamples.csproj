@@ -85,6 +85,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Abstractions, Version=12.0.0.0, Culture=neutral, PublicKeyToken=96bf224d23c43e59, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Abstractions.12.1.1\lib\net461\System.IO.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -108,9 +111,16 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="SystemInterface, Version=0.26.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL">
+      <HintPath>..\packages\SystemWrapper.Interfaces.0.27.0\lib\net45\SystemInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemWrapper, Version=0.26.0.0, Culture=neutral, PublicKeyToken=fbc3a63dd3cf8960, processorArchitecture=MSIL">
+      <HintPath>..\packages\SystemWrapper.Wrappers.0.27.0\lib\net45\SystemWrapper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Greeter.cs" />
     <Compile Include="IWriter.cs" />
     <Compile Include="LoggedWriter.cs" />
