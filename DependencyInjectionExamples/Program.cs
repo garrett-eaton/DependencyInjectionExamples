@@ -38,7 +38,7 @@ namespace DependencyInjectionExamples
             builder.RegisterInstance(loggerFactory).As<ILoggerFactory>().SingleInstance();
             builder.RegisterGeneric(typeof(Logger<>)).As(typeof(ILogger<>)).SingleInstance();
             builder.RegisterType<FileWrap>().As<IFile>();
-            builder.RegisterType<FileWriter>().As<IWriter>();
+            builder.RegisterType<NullWriter>().As<IWriter>();
 
             builder.RegisterDecorator<LoggedWriter, IWriter>();
             builder.RegisterDecorator<RetryWriter, IWriter>();
