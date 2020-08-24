@@ -41,6 +41,7 @@ namespace DependencyInjectionExamples
             builder.RegisterType<FileWriter>().As<IWriter>();
 
             builder.RegisterDecorator<LoggedWriter, IWriter>();
+            builder.RegisterDecorator<RetryWriter, IWriter>();
 
             builder.RegisterType<Greeter>();
 
